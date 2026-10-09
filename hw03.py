@@ -31,19 +31,19 @@ def read_five_ints():
         # check if the int is not in the interval [0 to 10] print error
         # add the int to grades at index idx
         
-        x = (input("Give me the next grade in [0 to 10]: "))
+        x = input("Give me the next grade in [0 to 10]: ")
         
-        #checking if input is an integer
+        #Check if the input is not a digit
         if x.isdigit() is False:
-            print("Error in input: input string is not for an integer")
+            print("Error in read_five_ints: input string is not for an integer")
             exit()
-        
-        #checking if input is in range
-        elif (int(x) > 10 or int(x) < 0):
-            print("Error in input: input integer outside of range")
+            
+        #Convert to int and check if outside range
+        elif int(x) > 10 or int(x) < 0:
+            print("Error in read_five_ints: input integer outside of range")
             exit()
-        
-        #updating grades list
+            
+        #Add the int to grades at index idx
         else:
             grades[idx] = int(x)
 
@@ -64,7 +64,7 @@ def pick_averaging_method():
     """
     
     #redefines x in this section
-    x = list(map(int, grades))
+    x = list(grades)
     
     #defines function, tells user to input a, b, c
     avg_method = input("Pick 'a' for mean, 'b' for median, 'c' for mode: ")
@@ -76,20 +76,20 @@ def pick_averaging_method():
         return avg
    
    #finds and returns the median of the inputted list
-    if avg_method == 'b':
+    elif avg_method == 'b':
         print("picked: Median")
         avg = statistics.median(x)
         return avg
     
     #finds and returns the mode of the inputted list
-    if avg_method == 'c':
+    elif avg_method == 'c':
         print("picked: Mode")
         avg = statistics.mode(x)
         return avg
     
     #makes sure user inputs an integer; if they don't, the program quits
     else:
-        print("Error in picking average method: incorrect option picked")
+        print("Error in pick_averaging_method: incorrect option picked")
         exit()
 
 # Task 3:
@@ -107,10 +107,10 @@ def pick_visualization(average):
     
     if display == '1':
         print_list_and_average(average)
-    if display == '2':
+    elif display == '2':
         plot_grades(average)
     else:
-        print("Error in pick visualization: incorrect option picked")
+        print("Error in pick_visualization: incorrect option picked")
         exit()
         
 
