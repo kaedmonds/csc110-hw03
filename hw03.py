@@ -31,7 +31,7 @@ def read_five_ints():
         # check if the int is not in the interval [0 to 10] print error
         # add the int to grades at index idx
         
-        x = input("Give me the next grade in [0 to 10]: ")
+        x = (input("Give me the next grade in [0 to 10]: "))
         
         #checking if input is an integer
         if x.isdigit() is False:
@@ -39,7 +39,7 @@ def read_five_ints():
             exit()
         
         #checking if input is in range
-        elif (int(x) > 10 or int(x) <0):
+        elif (int(x) > 10 or int(x) < 0):
             print("Error in input: input integer outside of range")
             exit()
         
